@@ -6,13 +6,37 @@ import { CurrentUser } from './CurrentUser'
 import './BigPrize.css';
 
 const DriverNames = {
-    RICH: "Richard Petty",
-    TOKYO: "Tokyo Tsunami",
-    RICKY: "Ricky Bobby",
-    MICKY: "micky Bobby",
-    NICKY: "nicky Bobby",
-    OICKY: "oicky Bobby",
-    PICKY: "picky Bobby",
+    MARCO: "Marco Andretti",
+    SCOTT: "Scott Dixon",
+    TAKUMA: "Takuma Sato",
+    RINUS: "Rinus VeeKay",
+    ALEX: "Alex Palou",
+    GRAHAM: "Graham Rahal",
+    ALEXANDER: "Alexander Rossi",
+    COLTON: "Colton Herta",
+    MARCUS: "Marcus Ericsson",
+    SPENCER: "Spencer Pigot",
+    JOSEF: "Josef Newgarden",
+    FELIX: "Felix Rosenqvist",
+    PATO: "Pato O'Ward",
+    ED: "Ed Carpenter",
+    ZACH: "Zach Veach",
+    CONOR: "Conor Daly",
+    SANTINO: "Santino Ferrucci",
+    JACK: "Jack Harvey",
+    OLIVER: "Oliver Askew",
+    WILL: "Will Power",
+    TONY: "Tony Kanaan",
+    DALTON: "Dalton Kellett",
+    SIMON: "Simon Pagenaud",
+    FERNANDO: "Fernando Alonso",
+    JAMES: "James Davison",
+    HELIO: "Helio Castroneves",
+    CHARLIE: "Charlie Kimball",
+    MAX: "Max Chilton",
+    SAGE: "Sage Karam",
+    JR: "JR Hildebrand",
+    BEN: "Ben Hanley"
 }
 
 const Page = {
@@ -43,6 +67,9 @@ export class BigPrize extends Component {
     }
 
     enginesReady = async () => {
+        if (!window.confirm(`Ready to pick drivers?`)) {
+            return
+        };
         await this.setState({currentUser: this.state.participants[0]})
         await this.setState({page: Page.SELECT});
     }
