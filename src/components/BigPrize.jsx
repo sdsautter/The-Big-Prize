@@ -27,33 +27,9 @@ export class BigPrize extends Component {
         this.state = {
             page: Page.INPUT,
             participants: [],
-            drivers: [
-                {
-                    name: DriverNames.RICH,
-                    selected: false
-                },
-                {
-                    name: DriverNames.TOKYO,
-                    selected: false
-                },{
-                    name: DriverNames.RICKY,
-                    selected: false
-                },
-                {
-                    name: DriverNames.MICKY,
-                    selected: false
-                },
-                {
-                    name: DriverNames.NICKY,
-                    selected: false
-                },{
-                    name: DriverNames.OICKY,
-                    selected: false
-                },{
-                    name: DriverNames.PICKY,
-                    selected: false
-                }
-            ],
+            drivers: Object.keys(DriverNames).map(driver => {
+                return {name: DriverNames[driver], selected: false}
+            }),
             currentUser: null,
             selectionNumber: 1
         }
@@ -95,7 +71,6 @@ export class BigPrize extends Component {
 
     nextParticipant = async () => {
         const selectionNumber = this.state.selectionNumber+1;
-        console.log("number", selectionNumber);
         for (let i = 0; i < this.state.participants.length; i++) {
             if (this.state.currentUser === this.state.participants[i]) {
                 if (this.ascending) {

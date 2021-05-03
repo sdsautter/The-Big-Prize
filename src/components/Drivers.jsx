@@ -10,8 +10,8 @@ export class Drivers extends React.Component {
     renderDrivers() {
         return this.props.drivers.map((driver, idx) => {
             return (
-                <div className="col-3 driver">
-                    <button key={idx} className="btn btn-secondary" name={driver.name} disabled={driver.selected} onClick={this.props.selectDriver}>{driver.name}</button>
+                <div key={idx} className="col-3 driver">
+                    <button className="btn btn-secondary" name={driver.name} disabled={driver.selected} onClick={this.props.selectDriver}>{driver.name}</button>
                 </div>
             )
         })
@@ -19,7 +19,7 @@ export class Drivers extends React.Component {
 
     render(){
         return (
-            <div class="row">{this.renderDrivers()}</div>
+            <div className="row">{this.renderDrivers()}</div>
         )
     }
 }
