@@ -1,24 +1,25 @@
 import React from 'react'
+import './Drivers.css';
 
 export class Drivers extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            yep: ''
-        }
+        this.renderDrivers.bind(this);
     }
 
-    renderDrivers = () => {
+    renderDrivers() {
         return this.props.drivers.map((driver, idx) => {
             return (
-                <button key={idx} name={driver.name} disabled={driver.selected} onClick={this.props.selectDriver}>{driver.name}</button>
+                <div className="col-3 driver">
+                    <button key={idx} className="btn btn-secondary" name={driver.name} disabled={driver.selected} onClick={this.props.selectDriver}>{driver.name}</button>
+                </div>
             )
         })
     }
 
     render(){
         return (
-            <div>{this.renderDrivers()}</div>
+            <div class="row">{this.renderDrivers()}</div>
         )
     }
 }

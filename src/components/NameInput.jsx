@@ -14,6 +14,10 @@ export class NameInput extends React.Component {
         return true;
     }
 
+    inputDisabled = () => {
+        return this.state.name.trim() === ''
+    }
+
     handleSubmit = e => {
         e.preventDefault();
         this.props.addName(this.state.name);
@@ -30,8 +34,8 @@ export class NameInput extends React.Component {
                 Name: <span>   </span>
                 <input type="text" value={this.state.name} onChange={this.handleChange} />
                 </label>
-                <input type="submit" value="Add Hopeful" />
-                <button disabled={this.readyDisabled()} onClick={this.props.enginesReady}>Engines Ready!</button>
+                <button style={{margin: "5px"}} className="btn btn-success" type="submit" disabled={this.inputDisabled()}>Add Hopeful</button>
+                <button style={{margin: "5px"}} className="btn btn-danger" disabled={this.readyDisabled()} onClick={this.props.enginesReady}>Engines Ready!</button>
             </form>
         )
     }

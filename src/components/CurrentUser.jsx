@@ -10,8 +10,10 @@ export class CurrentUser extends React.Component {
     render(){
         return (
             <div>
-                <h3>Selecting:</h3>
-                <p>{this.props.currentUser}</p>
+                <h2>Selecting:</h2>
+                <div>
+                    <strong>{this.props.selectionNumber}. {this.props.currentUser.name}</strong>
+                </div>
             </div>
         )
     }

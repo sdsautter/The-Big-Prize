@@ -4,7 +4,7 @@ export class NameList extends React.Component {
     constructor(props) {
         super(props);
         this.renderDrivers.bind(this);
-        this.renderNames.bind(this);
+        this.renderParticipants.bind(this);
     }
 
     renderDrivers(drivers) {
@@ -20,20 +20,23 @@ export class NameList extends React.Component {
         })
     }
 
-    renderNames() {
-        return this.props.names.map((name, idx) => {
+    renderParticipants() {
+        return this.props.participants.map((participant, idx) => {
             return (
-                <div key={idx}>
-                    <p name={name.name}><strong>{name.name}</strong></p>
-                    {this.renderDrivers(name.drivers)}
-                </div>
+                <li key={idx}>
+                    <p name={participant.name}><strong>{participant.name}</strong></p>
+                    {this.renderDrivers(participant.drivers)}
+                </li>
             )
         })
     }
 
     render(){
         return (
-            <div>{this.renderNames()}</div>
+            <span>
+                Big Prize Hopefules:
+                <ol>{this.renderParticipants()}</ol>
+            </span>
         )
     }
 }

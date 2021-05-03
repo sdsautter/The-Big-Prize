@@ -1,13 +1,18 @@
-import React from 'react'
+import { Component } from 'react'
 import {NameInput} from './NameInput'
 import {NameList} from './NameList'
 import {Drivers} from './Drivers'
 import { CurrentUser } from './CurrentUser'
+import './BigPrize.css';
 
 const DriverNames = {
     RICH: "Richard Petty",
     TOKYO: "Tokyo Tsunami",
-    BILLY: "Billy Bobby"
+    RICKY: "Ricky Bobby",
+    MICKY: "micky Bobby",
+    NICKY: "nicky Bobby",
+    OICKY: "oicky Bobby",
+    PICKY: "picky Bobby",
 }
 
 const Page = {
@@ -15,12 +20,13 @@ const Page = {
     SELECT: "select",
     RESULTS: "result"
 }
-export class BigPrize extends React.Component {
+export class BigPrize extends Component {
+    ascending = true;
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             page: Page.INPUT,
-            names: [],
+            participants: [],
             drivers: [
                 {
                     name: DriverNames.RICH,
@@ -29,56 +35,92 @@ export class BigPrize extends React.Component {
                 {
                     name: DriverNames.TOKYO,
                     selected: false
+                },{
+                    name: DriverNames.RICKY,
+                    selected: false
                 },
                 {
-                    name: DriverNames.BILLY,
+                    name: DriverNames.MICKY,
+                    selected: false
+                },
+                {
+                    name: DriverNames.NICKY,
+                    selected: false
+                },{
+                    name: DriverNames.OICKY,
+                    selected: false
+                },{
+                    name: DriverNames.PICKY,
                     selected: false
                 }
             ],
-            currentUser: null
+            currentUser: null,
+            selectionNumber: 1
         }
     }
 
     addName = async (name) => {
-        const names = this.state.names;
+        if (name.trim() === '')  return;
+        const names = this.state.participants;
         names.push({name: name.trim(), drivers:[]});
         await this.setState({names})
     }
 
     enginesReady = async () => {
-        await this.shuffleArray(this.state.names);
+        await this.setState({currentUser: this.state.participants[0]})
         await this.setState({page: Page.SELECT});
-        await this.setState({currentUser: this.state.names[0].name})
-    }
-
-    shuffleArray = async (names) => {
-        const shuffled  = names.sort(() => Math.random() - 0.5)
-        const results = [];
-        shuffled.forEach(name => {
-            if (name.name !== '') {
-                results.push(name);
-            }
-        })
-        await this.setState({names: results})
     }
 
     selectDriver = async (driver) => {
         const name = driver.target.name;
         const drivers = this.state.drivers;
+        if (!window.confirm(`Did you mean to pick ${name} for ${this.state.currentUser.name}?`)) {
+            return
+        };
         drivers.forEach(driver => {
             if (driver.name === name) {
                 driver.selected = true;
             }
         })
         await this.setState({drivers})
-        const names = this.state.names;
-        names.forEach(user => {
-            if (user.name === this.state.currentUser) {
+        const participants = this.state.participants;
+        participants.forEach(user => {
+            if (user === this.state.currentUser) {
                 user.drivers.push(name)
             }
         })
-        await this.setState({names})
-        await this.setState({currentUser: this.state.names[1].name})
+        await this.setState({ participants })
+        await this.nextParticipant();
+    }
+
+    nextParticipant = async () => {
+        const selectionNumber = this.state.selectionNumber+1;
+        console.log("number", selectionNumber);
+        for (let i = 0; i < this.state.participants.length; i++) {
+            if (this.state.currentUser === this.state.participants[i]) {
+                if (this.ascending) {
+                    if (i + 1 === this.state.participants.length) {
+                        this.ascending = false;
+                        await this.setState({selectionNumber});
+                        return;
+                    } else {
+                        await this.setState({currentUser: this.state.participants[i+1]});
+                        await this.setState({selectionNumber});
+                        return;
+                    }
+                } else {
+                    if (i === 0) {
+                        this.ascending = true;
+                        await this.setState({selectionNumber});
+                        return;
+                    } else {
+                        await this.setState({currentUser: this.state.participants[i-1]});
+                        await this.setState({selectionNumber});
+                        return;
+                    }
+                }
+            }
+        }
     }
 
     renderPage = () => {
@@ -87,7 +129,7 @@ export class BigPrize extends React.Component {
                 return (
                     <NameInput
                         addName={this.addName}
-                        names={this.state.names}
+                        names={this.state.participants}
                         enginesReady={this.enginesReady}
                     />
                 )
@@ -97,11 +139,13 @@ export class BigPrize extends React.Component {
                     <div>
                         <CurrentUser
                             currentUser={this.state.currentUser}
+                            selectionNumber={this.state.selectionNumber}
                         />
-                    <Drivers
-                        selectDriver={this.selectDriver}
-                        drivers={this.state.drivers}
-                    />
+                        <br />
+                        <Drivers
+                            selectDriver={this.selectDriver}
+                            drivers={this.state.drivers}
+                        />
                     </div>
                 )
                 default: 
@@ -110,11 +154,17 @@ export class BigPrize extends React.Component {
     }
     render(){
         return (
-            <div>
-                {this.renderPage()}
-                <NameList
-                    names={this.state.names}
-                />
+            <div className="container">
+                <div className="row">
+                    <div className="col-9 page">
+                        {this.renderPage()}
+                    </div>
+                    <div className="col-3 name-list">
+                        <NameList
+                            participants={this.state.participants}
+                        />
+                    </div>
+                </div>
             </div>
         )
     }
