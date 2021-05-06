@@ -30,12 +30,25 @@ export class NameInput extends React.Component {
     render(){
         return (
             <form onSubmit={this.handleSubmit}>
-                <label>
-                Name: <span>   </span>
-                <input type="text" value={this.state.name} onChange={this.handleChange} />
-                </label>
-                <button style={{margin: "5px"}} className="btn btn-success" type="submit" disabled={this.inputDisabled()}>Add Hopeful</button>
-                <button style={{margin: "5px"}} className="btn btn-danger" disabled={this.readyDisabled()} onClick={this.props.enginesReady}>Engines Ready!</button>
+                <div className="row">
+                    <label>
+                        <h3>Participant Name</h3>
+                    <div style={{marginTop: "1rem"}} className="row">
+                        <div className="col-8 offset-2">
+                            <input style={{width: "100%", textAlign: "center"}} type="text" value={this.state.name} onChange={this.handleChange} />
+                        </div>
+                    </div>
+                    </label>
+                </div>
+                <br />
+                <div className="row">
+                <div className="col-4 offset-2">
+                    <button style={{margin: "5px", width:"100%"}} className="btn btn-success" type="submit" disabled={this.inputDisabled()}>Add Hopeful</button>
+                </div>
+                <div className="col-4">
+                    <button style={{margin: "5px", width:"100%"}} className="btn btn-danger" disabled={this.readyDisabled()} onClick={this.props.enginesReady}>Engines Ready!</button>
+                </div>
+                </div>
             </form>
         )
     }
