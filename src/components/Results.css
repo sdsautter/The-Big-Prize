@@ -1,0 +1,14 @@
+.card {
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+.card-header {
+    background-color: rgb(52, 58, 64);
+    color: rgb(233, 236, 239);
+}
+
+.drivers {
+    background-color: rgb(248, 249, 250);
+}

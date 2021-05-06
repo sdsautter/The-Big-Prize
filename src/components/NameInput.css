@@ -1,0 +1,16 @@
+.readyBtn {
+    background: repeating-conic-gradient(#252525 0% 25%, transparent 0% 50%) 
+              0% / 40px 40px;
+}
+.readyBtn:hover {
+    background: repeating-conic-gradient(#919191 0% 25%, transparent 0% 50%) 
+              0% / 40px 40px;
+}           
+.readyText{
+    color: rgb(236, 27, 27);
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-shadow: 2px 2px rgb(88, 32, 32);
+    /* background-color: rgba(33, 37, 41, 0.3); */
+    -webkit-text-stroke: 1px black;
+}

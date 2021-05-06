@@ -1,4 +1,5 @@
 import React from 'react'
+import "./NameInput.css"
 
 export class NameInput extends React.Component {
     constructor(props) {
@@ -43,10 +44,10 @@ export class NameInput extends React.Component {
                 <br />
                 <div className="row">
                 <div className="col-4 offset-2">
-                    <button style={{margin: "5px", width:"100%"}} className="btn btn-success" type="submit" disabled={this.inputDisabled()}>Add Hopeful</button>
+                    <button style={{margin: "5px", width:"100%", height: "100%"}} className="btn btn-success" type="submit" disabled={this.inputDisabled()}><span style={{fontSize: "1.8rem"}}>Add Participant</span></button>
                 </div>
                 <div className="col-4">
-                    <button style={{margin: "5px", width:"100%"}} className="btn btn-danger" disabled={this.readyDisabled()} onClick={this.props.enginesReady}>Engines Ready!</button>
+                    <button style={{margin: "5px", width:"100%", height: "100%"}} className="btn readyBtn" disabled={this.readyDisabled()} onClick={this.props.enginesReady}><span className="readyText">Engines Ready!</span></button>
                 </div>
                 </div>
             </form>
