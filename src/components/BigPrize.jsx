@@ -135,14 +135,14 @@ export class BigPrize extends Component {
             case Page.INPUT:
                 return (
                     <div className="row">
-                        <div className="col-8">
+                        <div className="col-md-8 col-sm-12">
                             <NameInput
                                 addName={this.addName}
                                 names={this.state.participants}
                                 enginesReady={this.enginesReady}
                             />
                         </div>
-                        <div className="col-4 name-list">
+                        <div className="col-md-4 col-sm-12 name-list">
                             <NameList
                                 participants={this.state.participants}
                             />
@@ -153,7 +153,7 @@ export class BigPrize extends Component {
             case Page.SELECT:
                 return (
                     <div className="row">
-                        <div className="col-8">
+                        <div className="col-md-8 col-sm-12">
                         <CurrentUser
                             currentUser={this.state.currentUser}
                             selectionNumber={this.state.selectionNumber}
@@ -164,8 +164,9 @@ export class BigPrize extends Component {
                             drivers={this.state.drivers}
                         />
                         </div>
-                        <div className="col-4 name-list">
+                        <div className="col-md-4 col-sm-12 name-list">
                             <NameList
+                                currentUser={this.state.currentUser}
                                 participants={this.state.participants}
                             />
                         </div>

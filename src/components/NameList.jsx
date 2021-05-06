@@ -6,6 +6,7 @@ export class NameList extends React.Component {
         super(props);
         this.renderDrivers.bind(this);
         this.renderParticipants.bind(this);
+        this.participantClass.bind(this);
     }
 
     renderDrivers(drivers) {
@@ -21,11 +22,18 @@ export class NameList extends React.Component {
         })
     }
 
+    participantClass(participant) {
+        if (participant !== this.props.currentUser) {
+            return ''
+        }
+        return 'selector'
+    }
+
     renderParticipants() {
         return this.props.participants.map((participant, idx) => {
             return (
-                <li key={idx}>
-                    <p name={participant.name}><strong>{participant.name}</strong></p>
+                <li className={this.participantClass(participant)} key={idx}>
+                    <span name={participant.name}><strong>{participant.name}</strong></span>
                     <p>{this.renderDrivers(participant.drivers)}</p>
                 </li>
             )
@@ -36,7 +44,9 @@ export class NameList extends React.Component {
         return (
             <span>
                 <h3>Big Prize Participants</h3>
-                <ol>{this.renderParticipants()}</ol>
+                <ol className="list">
+                    {this.renderParticipants()}
+                </ol>
             </span>
         )
     }
