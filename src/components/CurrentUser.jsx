@@ -12,7 +12,7 @@ export class CurrentUser extends React.Component {
             <div>
                 <h2>Selecting:</h2>
                 <div>
-                    <strong>{this.props.selectionNumber}. {this.props.currentUser.name}</strong>
+                    <h3>{this.props.selectionNumber}. {this.props.currentUser.name}</h3>
                 </div>
             </div>
         )

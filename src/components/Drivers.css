@@ -1,3 +1,6 @@
 .driver {
     margin-bottom: 50px !important;
 }
+.driver-button {
+    background-color: rgba(73, 80, 87, 0.8);
+}

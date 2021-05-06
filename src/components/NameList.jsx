@@ -1,4 +1,5 @@
 import React from 'react'
+import "./NameList.css"
 
 export class NameList extends React.Component {
     constructor(props) {
@@ -34,7 +35,7 @@ export class NameList extends React.Component {
     render(){
         return (
             <span>
-                Big Prize Hopefuls:
+                <h3>Big Prize Participants</h3>
                 <ol>{this.renderParticipants()}</ol>
             </span>
         )

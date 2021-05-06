@@ -3,40 +3,41 @@ import {NameInput} from './NameInput'
 import {NameList} from './NameList'
 import {Drivers} from './Drivers'
 import { CurrentUser } from './CurrentUser'
+import { Results } from './Results'
 import './BigPrize.css';
 
 const DriverNames = {
     MARCO: "Marco Andretti",
     SCOTT: "Scott Dixon",
-    TAKUMA: "Takuma Sato",
-    RINUS: "Rinus VeeKay",
-    ALEX: "Alex Palou",
-    GRAHAM: "Graham Rahal",
-    ALEXANDER: "Alexander Rossi",
-    COLTON: "Colton Herta",
-    MARCUS: "Marcus Ericsson",
-    SPENCER: "Spencer Pigot",
-    JOSEF: "Josef Newgarden",
-    FELIX: "Felix Rosenqvist",
-    PATO: "Pato O'Ward",
-    ED: "Ed Carpenter",
-    ZACH: "Zach Veach",
-    CONOR: "Conor Daly",
-    SANTINO: "Santino Ferrucci",
-    JACK: "Jack Harvey",
-    OLIVER: "Oliver Askew",
-    WILL: "Will Power",
-    TONY: "Tony Kanaan",
-    DALTON: "Dalton Kellett",
-    SIMON: "Simon Pagenaud",
-    FERNANDO: "Fernando Alonso",
-    JAMES: "James Davison",
-    HELIO: "Helio Castroneves",
-    CHARLIE: "Charlie Kimball",
-    MAX: "Max Chilton",
-    SAGE: "Sage Karam",
-    JR: "JR Hildebrand",
-    BEN: "Ben Hanley"
+    // TAKUMA: "Takuma Sato",
+    // RINUS: "Rinus VeeKay",
+    // ALEX: "Alex Palou",
+    // GRAHAM: "Graham Rahal",
+    // ALEXANDER: "Alexander Rossi",
+    // COLTON: "Colton Herta",
+    // MARCUS: "Marcus Ericsson",
+    // SPENCER: "Spencer Pigot",
+    // JOSEF: "Josef Newgarden",
+    // FELIX: "Felix Rosenqvist",
+    // PATO: "Pato O'Ward",
+    // ED: "Ed Carpenter",
+    // ZACH: "Zach Veach",
+    // CONOR: "Conor Daly",
+    // SANTINO: "Santino Ferrucci",
+    // JACK: "Jack Harvey",
+    // OLIVER: "Oliver Askew",
+    // WILL: "Will Power",
+    // TONY: "Tony Kanaan",
+    // DALTON: "Dalton Kellett",
+    // SIMON: "Simon Pagenaud",
+    // FERNANDO: "Fernando Alonso",
+    // JAMES: "James Davison",
+    // HELIO: "Helio Castroneves",
+    // CHARLIE: "Charlie Kimball",
+    // MAX: "Max Chilton",
+    // SAGE: "Sage Karam",
+    // JR: "JR Hildebrand",
+    // BEN: "Ben Hanley"
 }
 
 const Page = {
@@ -93,7 +94,11 @@ export class BigPrize extends Component {
             }
         })
         await this.setState({ participants })
-        await this.nextParticipant();
+        if (this.state.selectionNumber === this.state.drivers.length) {
+            await this.setState({page: Page.RESULTS})
+        } else {
+            await this.nextParticipant();
+        }
     }
 
     nextParticipant = async () => {
@@ -129,16 +134,26 @@ export class BigPrize extends Component {
         switch (this.state.page) {
             case Page.INPUT:
                 return (
-                    <NameInput
-                        addName={this.addName}
-                        names={this.state.participants}
-                        enginesReady={this.enginesReady}
-                    />
+                    <div className="row">
+                        <div className="col-8">
+                            <NameInput
+                                addName={this.addName}
+                                names={this.state.participants}
+                                enginesReady={this.enginesReady}
+                            />
+                        </div>
+                        <div className="col-4 name-list">
+                            <NameList
+                                participants={this.state.participants}
+                            />
+                        </div>
+                    </div>
                 )
         
             case Page.SELECT:
                 return (
-                    <div>
+                    <div className="row">
+                        <div className="col-8">
                         <CurrentUser
                             currentUser={this.state.currentUser}
                             selectionNumber={this.state.selectionNumber}
@@ -148,8 +163,24 @@ export class BigPrize extends Component {
                             selectDriver={this.selectDriver}
                             drivers={this.state.drivers}
                         />
+                        </div>
+                        <div className="col-4 name-list">
+                            <NameList
+                                participants={this.state.participants}
+                            />
+                        </div>
                     </div>
                 )
+                case Page.RESULTS:
+                    return (
+                        <div className="row">
+                            <div className="col-12">
+                                <Results
+                                    participants={this.state.participants}
+                                />
+                            </div>
+                        </div>
+                    )
                 default: 
                 break;
         }
@@ -157,16 +188,9 @@ export class BigPrize extends Component {
     render(){
         return (
             <div className="container">
-                <div className="row">
-                    <div className="col-9 page">
-                        {this.renderPage()}
-                    </div>
-                    <div className="col-3 name-list">
-                        <NameList
-                            participants={this.state.participants}
-                        />
-                    </div>
-                </div>
+                 <h1 style={{marginTop: "1rem"}}>The Big Prize</h1>
+                <br />
+                {this.renderPage()}
             </div>
         )
     }
