@@ -26,7 +26,7 @@ export class NameList extends React.Component {
             return (
                 <li key={idx}>
                     <p name={participant.name}><strong>{participant.name}</strong></p>
-                    {this.renderDrivers(participant.drivers)}
+                    <p>{this.renderDrivers(participant.drivers)}</p>
                 </li>
             )
         })

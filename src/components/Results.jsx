@@ -1,4 +1,5 @@
 import React from 'react';
+import "./Results.css";
 
 export class Results extends React.Component {
     constructor(props) {
@@ -9,14 +10,14 @@ export class Results extends React.Component {
 
     renderDrivers(drivers) {
         return drivers.map((driver, idx) => {
-            return <li className="list-group-item" key={driver} name={driver}>{driver}</li>
+            return <li className="drivers list-group-item" key={driver} name={driver}>{driver}</li>
         })
     }
 
     renderResults() {
         return this.props.participants.map((participant, idx) => {
             return (
-                <div key={idx} className="col">
+                <div key={idx} className="col" style={{margin: ".5rem"}}>
                     <div className="card mx-auto text-center" style={{width: "18rem"}}>
                         <div className="card-header">
                             <strong>{participant.name}</strong>
