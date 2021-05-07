@@ -1,4 +1,5 @@
 import React from 'react'
+import { Row, Col, Button } from 'react-bootstrap'
 import "./NameInput.css"
 
 export class NameInput extends React.Component {
@@ -31,25 +32,21 @@ export class NameInput extends React.Component {
     render(){
         return (
             <form onSubmit={this.handleSubmit}>
-                <div className="row">
-                    <label>
                         <h3>Participant Name</h3>
-                    <div style={{marginTop: "1rem"}} className="row">
-                        <div className="col-md-8 offset-md-2 col-sm-10 offset-sm-1">
-                            <input style={{width: "100%", textAlign: "center"}} type="text" value={this.state.name} onChange={this.handleChange} />
-                        </div>
-                    </div>
-                    </label>
-                </div>
+                <Row className="justify-content-md-center">
+                    <Col sm={12} md={8}>
+                        <input style={{width: "100%", textAlign: "center"}} type="text" value={this.state.name} onChange={this.handleChange} />
+                    </Col>
+                </Row>
                 <br />
-                <div className="row">
-                    <div className="col-md-4 offset-md-2 col-sm-6">
-                        <button style={{margin: "5px", marginBottom: "1rem", width:"100%", height: "90%"}} className="btn btn-success" type="submit" disabled={this.inputDisabled()}><span style={{fontSize: "1.8rem"}}>Add Participant</span></button>
-                    </div>
-                    <div className="col-md-4 col-sm-6">
-                        <button style={{margin: "5px", width:"100%", height: "90%"}} className="btn readyBtn" disabled={this.readyDisabled()} onClick={this.props.enginesReady}><span className="readyText">Engines Ready!</span></button>
-                    </div>
-                </div>
+                <Row className="justify-content-md-center">
+                    <Col lg={4} md={6} sm={6}>
+                        <Button style={{margin: "5px", marginBottom: "1rem", width:"100%", height: "90%"}} variant="success" type="submit" disabled={this.inputDisabled()}><span style={{fontSize: "1.8rem"}}>Add Participant</span></Button>
+                    </Col>
+                    <Col lg={4} md={6} sm={6}>
+                        <Button style={{margin: "5px", width:"100%", height: "90%"}} className="readyBtn" variant="light" disabled={this.readyDisabled()} onClick={this.props.enginesReady}><span className="readyText">Engines Ready!</span></Button>
+                    </Col>
+                </Row>
             </form>
         )
     }

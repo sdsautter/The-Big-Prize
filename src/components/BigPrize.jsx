@@ -5,6 +5,7 @@ import {Drivers} from './Drivers'
 import { CurrentUser } from './CurrentUser'
 import { Results } from './Results'
 import './BigPrize.css';
+import { Container, Row, Col } from 'react-bootstrap'
 
 const DriverNames = {
     MARCO: {
@@ -235,53 +236,53 @@ export class BigPrize extends Component {
         switch (this.state.page) {
             case Page.INPUT:
                 return (
-                    <div className="row">
-                        <div className="col-md-8 col-sm-12">
+                    <Row className="justify-content-md-center">
+                        <Col md={8} sm={12}>
                             <NameInput
                                 addName={this.addName}
                                 names={this.state.participants}
                                 enginesReady={this.enginesReady}
                             />
-                        </div>
-                        <div className="col-md-4 col-sm-12 name-list">
+                        </Col>
+                        <Col md={4} sm={12} className="name-list">
                             <NameList
                                 participants={this.state.participants}
                             />
-                        </div>
-                    </div>
+                        </Col>
+                    </Row>
                 )
         
             case Page.SELECT:
                 return (
-                    <div className="row">
-                        <div className="col-md-8 col-sm-12">
-                        <CurrentUser
-                            currentUser={this.state.currentUser}
-                            selectionNumber={this.state.selectionNumber}
-                        />
-                        <br />
-                        <Drivers
-                            selectDriver={this.selectDriver}
-                            drivers={this.state.drivers}
-                        />
-                        </div>
-                        <div className="col-md-4 col-sm-12 name-list">
+                    <Row>
+                        <Col md={8} sm={12}>
+                            <CurrentUser
+                                currentUser={this.state.currentUser}
+                                selectionNumber={this.state.selectionNumber}
+                            />
+                            <br />
+                            <Drivers
+                                selectDriver={this.selectDriver}
+                                drivers={this.state.drivers}
+                            />
+                        </Col>
+                        <Col md={4} sm={12} className="name-list">
                             <NameList
                                 currentUser={this.state.currentUser}
                                 participants={this.state.participants}
                             />
-                        </div>
-                    </div>
+                        </Col>
+                    </Row>
                 )
                 case Page.RESULTS:
                     return (
-                        <div className="row">
-                            <div className="col-12">
+                        <Row>
+                            <Col>                            
                                 <Results
                                     participants={this.state.participants}
                                 />
-                            </div>
-                        </div>
+                            </Col>
+                        </Row>
                     )
                 default: 
                 break;
@@ -289,11 +290,11 @@ export class BigPrize extends Component {
     }
     render(){
         return (
-            <div className="container">
+            <Container>
                  <h1 style={{marginTop: "1rem"}}>The Big Prize</h1>
                 <br />
                 {this.renderPage()}
-            </div>
+            </Container>   
         )
     }
 }
