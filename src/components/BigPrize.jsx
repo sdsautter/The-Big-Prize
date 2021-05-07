@@ -7,37 +7,138 @@ import { Results } from './Results'
 import './BigPrize.css';
 
 const DriverNames = {
-    MARCO: "Marco Andretti",
-    SCOTT: "Scott Dixon",
-    TAKUMA: "Takuma Sato",
-    RINUS: "Rinus VeeKay",
-    ALEX: "Alex Palou",
-    GRAHAM: "Graham Rahal",
-    ALEXANDER: "Alexander Rossi",
-    COLTON: "Colton Herta",
-    MARCUS: "Marcus Ericsson",
-    SPENCER: "Spencer Pigot",
-    JOSEF: "Josef Newgarden",
-    FELIX: "Felix Rosenqvist",
-    PATO: "Pato O'Ward",
-    ED: "Ed Carpenter",
-    ZACH: "Zach Veach",
-    CONOR: "Conor Daly",
-    SANTINO: "Santino Ferrucci",
-    JACK: "Jack Harvey",
-    OLIVER: "Oliver Askew",
-    WILL: "Will Power",
-    TONY: "Tony Kanaan",
-    DALTON: "Dalton Kellett",
-    SIMON: "Simon Pagenaud",
-    FERNANDO: "Fernando Alonso",
-    JAMES: "James Davison",
-    HELIO: "Helio Castroneves",
-    CHARLIE: "Charlie Kimball",
-    MAX: "Max Chilton",
-    SAGE: "Sage Karam",
-    JR: "JR Hildebrand",
-    BEN: "Ben Hanley"
+    MARCO: {
+        name: "Marco Andretti",
+        number: 98,
+    },
+    SCOTT: {
+        name: "Scott Dixon",
+        number: 9,
+    },
+    TAKUMA: {
+        name: "Takuma Sato",
+        number: 30,
+    },
+    RINUS: {
+        name: "Rinus VeeKay",
+        number: 21,
+    },
+    RYAN: {
+        name: "Ryan Hunter-Reay",
+        number: 28,
+    },
+    JAMES_HINCH: {
+        name: "James Hinchcliffe",
+        number: 29,
+    },
+    ALEX: {
+        name: "Alex Palou",
+        number: 55,
+    },
+    GRAHAM: {
+        name: "Graham Rahal",
+        number: 15,
+    },
+    ALEXANDER: {
+        name: "Alexander Rossi",
+        number: 27,
+    },
+    COLTON: {
+        name: "Colton Herta",
+        number: 88,
+    },
+    MARCUS: {
+        name: "Marcus Ericsson",
+        number: 8,
+    },
+    SPENCER: {
+        name: "Spencer Pigot",
+        number: 45,
+    },
+    JOSEF: {
+        name: "Josef Newgarden",
+        number: 1,
+    },
+    FELIX: {
+        name: "Felix Rosenqvist",
+        number: 10,
+    },
+    PATO: {
+        name: "Pato O'Ward",
+        number: 5,
+    },
+    ED: {
+        name: "Ed Carpenter",
+        number: 20,
+    },
+    ZACH: {
+        name: "Zach Veach",
+        number: 26,
+    },
+    CONOR: {
+        name: "Conor Daly",
+        number: 47,
+    },
+    SANTINO: {
+        name: "Santino Ferrucci",
+        number: 18,
+    },
+    JACK: {
+        name: "Jack Harvey",
+        number: 60,
+    },
+    OLIVER: {
+        name: "Oliver Askew",
+        number: 7,
+    },
+    WILL: {
+        name: "Will Power",
+        number: 12,
+    },
+    TONY: {
+        name: "Tony Kanaan",
+        number: 14,
+    },
+    DALTON: {
+        name: "Dalton Kellett",
+        number: 41,
+    },
+    SIMON: {
+        name: "Simon Pagenaud",
+        number: 22,
+    },
+    FERNANDO: {
+        name: "Fernando Alonso",
+        number: 66,
+    },
+    JAMES: {
+        name: "James Davison",
+        number: 51,
+    },
+    HELIO: {
+        name: "Helio Castroneves",
+        number: 3,
+    },
+    CHARLIE: {
+        name: "Charlie Kimball",
+        number: 4,
+    },
+    MAX: {
+        name: "Max Chilton",
+        number: 59,
+    },
+    SAGE: {
+        name: "Sage Karam",
+        number: 24,
+    },
+    JR: {
+        name: "JR Hildebrand",
+        number: 67,
+    },
+    BEN: {
+        name: "Ben Hanley",
+        number: 81,
+    }
 }
 
 const Page = {
@@ -52,8 +153,8 @@ export class BigPrize extends Component {
         this.state = {
             page: Page.INPUT,
             participants: [],
-            drivers: Object.keys(DriverNames).map(driver => {
-                return {name: DriverNames[driver], selected: false}
+            drivers: Object.keys(DriverNames).map((driver, idx) => {
+                return {name: DriverNames[driver].name, number:  DriverNames[driver].number, selected: false}
             }),
             currentUser: null,
             selectionNumber: 1
