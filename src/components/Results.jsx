@@ -1,4 +1,5 @@
 import React from 'react';
+import { Row, Col, Card } from 'react-bootstrap'
 import "./Results.css";
 
 export class Results extends React.Component {
@@ -17,26 +18,44 @@ export class Results extends React.Component {
     renderResults() {
         return this.props.participants.map((participant, idx) => {
             return (
-                <div key={idx} className="col" style={{margin: ".5rem"}}>
-                    <div className="card mx-auto text-center" style={{width: "18rem"}}>
-                        <div className="card-header">
-                            <strong>{participant.name}</strong>
-                        </div>
-                        <ul className="list-group list-group-flush">
-                            {this.renderDrivers(participant.drivers)}
-                        </ul>
-                    </div>
-                </div>
+                // <div key={idx} className="col" style={{margin: ".5rem"}}>
+                //     <div className="card mx-auto text-center" style={{width: "18rem"}}>
+                //         <div className="card-header">
+                //             <strong>{participant.name}</strong>
+                //         </div>
+                //         <ul className="list-group list-group-flush">
+                //             {this.renderDrivers(participant.drivers)}
+                //         </ul>
+                //     </div>
+                // </div>
+                 <Col key={idx} style={{margin: ".5rem"}}>
+                 <Card style={{width: "18rem"}} className="card mx-auto text-center">
+                     <Card.Body>
+                     <Card.Title className="card-header"><strong>{participant.name}</strong></Card.Title>
+                     <Card.Text>
+                         <ul className="list-group list-group-flush">
+                             {this.renderDrivers(participant.drivers)}
+                         </ul>
+                     </Card.Text>
+                     </Card.Body>
+                 </Card>
+             </Col>
             )
         })
     }
 
     render(){
         return (
-            <div className="row">
-                <h3 style={{marginBottom: "2rem"}}>Selection Results</h3>
-                {this.renderResults()}
-            </div>
+           <Row>
+               <Col sm={12}>
+                    <h3 style={{marginBottom: "2rem"}}>Selection Results</h3>
+                </Col>
+                <Col sm={12}>
+                    <Row>
+                        {this.renderResults()}
+                    </Row>
+                </Col>
+           </Row>
         )
     }
 }

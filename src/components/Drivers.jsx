@@ -1,5 +1,6 @@
 import React from 'react'
 import './Drivers.css';
+import { Button, Row, Col } from 'react-bootstrap'
 
 export class Drivers extends React.Component {
     constructor(props) {
@@ -11,19 +12,21 @@ export class Drivers extends React.Component {
         return this.props.drivers.map((driver, idx) => {
             const imgSrc = `/cars/${driver.number}.png`
             return (
-                <div key={idx} className="col col-md-2 driver">
-                    <button className="btn btn-secondary" name={driver.name} disabled={driver.selected} onClick={this.props.selectDriver}
-                    data-toggle="popover-hover" data-img={imgSrc}>
+                <Col md={4} key={idx} className="driver">
+                    <Button variant="secondary" name={driver.name} disabled={driver.selected} onClick={this.props.selectDriver}>
                         #{driver.number} {driver.name}
-                    </button>
-                </div>
+                        <img style={{width: "100%"}}src={imgSrc} alt={driver.name}></img>
+                    </Button>
+                </Col>
             )
         })
     }
 
     render(){
         return (
-            <div className="row">{this.renderDrivers()}</div>
+            <Row>
+                {this.renderDrivers()}
+            </Row>
         )
     }
 }

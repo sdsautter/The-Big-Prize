@@ -1,6 +1,6 @@
 import './App.css';
 import {BigPrize} from './components/BigPrize'
-function App() {
+function App() {  
   return (
     <div className="App">
       <BigPrize />
