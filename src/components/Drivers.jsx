@@ -10,7 +10,7 @@ export class Drivers extends React.Component {
 
     renderDrivers() {
         return this.props.drivers.map((driver, idx) => {
-            const imgSrc = `/cars/${driver.number}.png`
+            const imgSrc = `/img/cars/${driver.number}.png`
             return (
                 <Col md={4} key={idx} className="driver">
                     <Button variant="secondary" name={driver.name} disabled={driver.selected} onClick={this.props.selectDriver}>

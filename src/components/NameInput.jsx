@@ -48,7 +48,9 @@ export class NameInput extends React.Component {
                         <Button style={{margin: "5px", marginBottom: "1rem", width:"100%", height: "90%"}} variant="success" type="submit" disabled={this.inputDisabled()}><span style={{fontSize: "1.8rem"}}>Add Participant</span></Button>
                     </Col>
                     <Col lg={4} md={6} sm={6}>
-                        <Button style={{margin: "5px", width:"100%", height: "90%"}} className="readyBtn" variant="light" disabled={this.readyDisabled()} onClick={this.handleShow}><span className="readyText">Engines Ready!</span></Button>
+                        <span>
+                            <Button style={{margin: "5px", width:"100%", height: "90%"}} className="readyBtn" variant="light" disabled={this.readyDisabled()} onClick={this.handleShow}><span className="readyText">Engines Ready!</span></Button>
+                        </span>
                     </Col>
                 </Row>
             <Modal
@@ -57,7 +59,7 @@ export class NameInput extends React.Component {
                 backdrop="static"
                 keyboard={true}
             >
-                <Modal.Body style={{textAlign: 'center'}}>
+                <Modal.Body style={{textAlign: 'center', color:'black'}}>
                     Are you ready to select drivers?
                 </Modal.Body>
                 <Modal.Footer>

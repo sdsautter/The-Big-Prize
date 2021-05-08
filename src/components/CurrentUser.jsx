@@ -41,7 +41,7 @@ export class CurrentUser extends React.Component {
                 keyboard={true}
             >
                 <Modal.Body style={{textAlign: 'center'}}>
-                    <h4>Confirm undo</h4>
+                    <h4 style={{color: 'black'}}>Confirm undo</h4>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={this.handleClose}>Close</Button>
