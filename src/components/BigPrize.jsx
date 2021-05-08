@@ -331,8 +331,12 @@ export class BigPrize extends Component {
                 case Page.RESULTS:
                     return (
                         <Row>
-                            <h1 style={{marginTop: "1rem"}}>The Official Big Prize™</h1>
-                            <img style={{maxWidth: "50%"}} src="/img/indy500.png" alt="indy500" />
+                            <Col xs={12}>
+                                <h1 style={{marginTop: "1rem"}}>The Official Big Prize™</h1>
+                            </Col>
+                            <Col xs={12}>
+                            <img style={{maxWidth: "30%"}} src="/img/indy500.png" alt="indy500" />
+                            </Col>
                             <br />
                             <Col>              
                                 <Results

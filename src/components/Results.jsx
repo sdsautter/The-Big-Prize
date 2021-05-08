@@ -18,16 +18,6 @@ export class Results extends React.Component {
     renderResults() {
         return this.props.participants.map((participant, idx) => {
             return (
-                // <div key={idx} className="col" style={{margin: ".5rem"}}>
-                //     <div className="card mx-auto text-center" style={{width: "18rem"}}>
-                //         <div className="card-header">
-                //             <strong>{participant.name}</strong>
-                //         </div>
-                //         <ul className="list-group list-group-flush">
-                //             {this.renderDrivers(participant.drivers)}
-                //         </ul>
-                //     </div>
-                // </div>
                  <Col key={idx} style={{margin: ".5rem"}}>
                  <Card style={{width: "18rem"}} className="card mx-auto text-center">
                      <Card.Body>
