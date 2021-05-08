@@ -3,10 +3,11 @@
     border-radius: 5px;
     padding: 2px;
     background-color: rgba(0,0,0,0);
+    color: black;
 }
 
 .card-header {
-    background-color: rgb(52, 58, 64);
+    background-color: black;
     color: rgb(233, 236, 239);
 }
 
