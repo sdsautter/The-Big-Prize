@@ -43,7 +43,7 @@ export class NameList extends React.Component {
     render(){
         return (
             <span>
-                <h3>Official Participants</h3>
+                <h3 style={{marginTop: "1rem"}}>Official Participants</h3>
                 <br />
                 <ol className="list">
                     {this.renderParticipants()}

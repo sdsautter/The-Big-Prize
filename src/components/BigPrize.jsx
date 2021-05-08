@@ -286,6 +286,7 @@ export class BigPrize extends Component {
                     <Row className="">
                         <Col md={8} sm={12}>
                             <h1 style={{marginTop: "1rem"}}>The Official Big Prize™</h1>
+                            <img style={{maxWidth: "50%"}} src="/img/indy500.png" alt="indy500" />
                             <br />
                             <NameInput
                                 addName={this.addName}
@@ -306,6 +307,7 @@ export class BigPrize extends Component {
                     <Row>
                         <Col md={8} sm={12}>
                             <h1 style={{marginTop: "1rem"}}>The Official Big Prize™</h1>
+                            <img style={{maxWidth: "50%"}} src="/img/indy500.png" alt="indy500" />
                             <br />
                             <CurrentUser
                                 currentUser={this.state.currentUser}
@@ -330,6 +332,7 @@ export class BigPrize extends Component {
                     return (
                         <Row>
                             <h1 style={{marginTop: "1rem"}}>The Official Big Prize™</h1>
+                            <img style={{maxWidth: "50%"}} src="/img/indy500.png" alt="indy500" />
                             <br />
                             <Col>              
                                 <Results
