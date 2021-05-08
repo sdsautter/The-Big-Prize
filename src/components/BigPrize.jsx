@@ -180,9 +180,6 @@ export class BigPrize extends Component {
     selectDriver = async (driver) => {
         const name = driver.target.name;
         const drivers = this.state.drivers;
-        if (!window.confirm(`Did you mean to pick ${name} for ${this.state.currentUser.name}?`)) {
-            return
-        };
         drivers.forEach(driver => {
             if (driver.name === name) {
                 driver.selected = true;
@@ -205,31 +202,84 @@ export class BigPrize extends Component {
 
     nextParticipant = async () => {
         const selectionNumber = this.state.selectionNumber+1;
+        await this.setState({selectionNumber});
         for (let i = 0; i < this.state.participants.length; i++) {
             if (this.state.currentUser === this.state.participants[i]) {
                 if (this.ascending) {
                     if (i + 1 === this.state.participants.length) {
                         this.ascending = false;
-                        await this.setState({selectionNumber});
                         return;
                     } else {
                         await this.setState({currentUser: this.state.participants[i+1]});
-                        await this.setState({selectionNumber});
                         return;
                     }
                 } else {
                     if (i === 0) {
                         this.ascending = true;
-                        await this.setState({selectionNumber});
                         return;
                     } else {
                         await this.setState({currentUser: this.state.participants[i-1]});
-                        await this.setState({selectionNumber});
                         return;
                     }
                 }
             }
         }
+    }
+
+    undo = async () => {
+        const selectionNumber = this.state.selectionNumber - 1;
+        await this.setState({selectionNumber});
+        for (let i = 0; i < this.state.participants.length; i++) {
+            if (this.state.currentUser === this.state.participants[i]) {
+                if (this.ascending) {
+                    if (i === 0) {
+                        this.ascending = false;
+                        const removedDriver = this.state.participants[i].drivers[this.state.participants[i].drivers.length-1];
+                        await this.enableDriver(removedDriver)
+                        this.state.participants[i].drivers.pop();
+                        await this.setState({currentUser: this.state.participants[i]});
+                        await this.setState({participants: this.state.participants});
+                        return;
+                    } else {
+                        const participant = this.state.participants[i-1];
+                        const removedDriver = participant.drivers[participant.drivers.length-1];
+                        await this.enableDriver(removedDriver)
+                        participant.drivers.pop();
+                        await this.setState({currentUser: participant});
+                        await this.setState({participants: this.state.participants});
+                        return;
+                    }
+                } else {
+                    if (i + 1 === this.state.participants.length) {
+                        this.ascending = true;
+                        const removedDriver = this.state.participants[i].drivers[this.state.participants[i].drivers.length-1];
+                        await this.enableDriver(removedDriver)
+                        this.state.participants[i].drivers.pop();
+                        await this.setState({currentUser: this.state.participants[i]});
+                        await this.setState({participants: this.state.participants});
+                        return;
+                    } else {
+                        const participant = this.state.participants[i+1];
+                        const removedDriver = participant.drivers[participant.drivers.length-1];
+                        await this.enableDriver(removedDriver)
+                        participant.drivers.pop();
+                        await this.setState({currentUser: participant});
+                        await this.setState({participants: this.state.participants});
+                        return;
+                    }
+                }
+            }
+        }
+    }
+
+    enableDriver = async(removedDriver) => {
+        this.state.drivers.forEach(async driver => {
+            if (removedDriver === driver.name) {
+                driver.selected = false;
+                await this.setState({drivers: this.state.drivers})
+                return;
+            }
+        })
     }
 
     renderPage = () => {
@@ -259,6 +309,7 @@ export class BigPrize extends Component {
                             <CurrentUser
                                 currentUser={this.state.currentUser}
                                 selectionNumber={this.state.selectionNumber}
+                                undo={this.undo}
                             />
                             <br />
                             <Drivers
