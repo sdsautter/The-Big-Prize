@@ -283,8 +283,10 @@ export class BigPrize extends Component {
         switch (this.state.page) {
             case Page.INPUT:
                 return (
-                    <Row className="justify-content-md-center">
+                    <Row className="">
                         <Col md={8} sm={12}>
+                            <h1 style={{marginTop: "1rem"}}>The Official Big Prize™</h1>
+                            <br />
                             <NameInput
                                 addName={this.addName}
                                 names={this.state.participants}
@@ -303,6 +305,8 @@ export class BigPrize extends Component {
                 return (
                     <Row>
                         <Col md={8} sm={12}>
+                            <h1 style={{marginTop: "1rem"}}>The Official Big Prize™</h1>
+                            <br />
                             <CurrentUser
                                 currentUser={this.state.currentUser}
                                 selectionNumber={this.state.selectionNumber}
@@ -325,7 +329,9 @@ export class BigPrize extends Component {
                 case Page.RESULTS:
                     return (
                         <Row>
-                            <Col>                            
+                            <h1 style={{marginTop: "1rem"}}>The Official Big Prize™</h1>
+                            <br />
+                            <Col>              
                                 <Results
                                     participants={this.state.participants}
                                 />
@@ -339,8 +345,6 @@ export class BigPrize extends Component {
     render(){
         return (
             <Container>
-                 <h1 style={{marginTop: "1rem"}}>The Big Prize</h1>
-                <br />
                 {this.renderPage()}
             </Container>   
         )
