@@ -30,8 +30,8 @@ export class CurrentUser extends React.Component {
                 <Col sm={{span: 6, offset: 3}}>
                     <h3>{this.props.selectionNumber}. {this.props.currentUser.name}</h3>
                 </Col>
-                <Col sm={{span: 8, offset: 2}} md={{span: 2, offset: 0}}>
-                    <Button variant="danger" style={{width: "80%"}} disabled={this.disableUndo()} onClick={this.handleShow}>Undo</Button>
+                <Col sm={{span: 8, offset: 2}} md={{span: 3, offset: 0}}>
+                    <Button variant="danger" style={{width: "100%"}} disabled={this.disableUndo()} onClick={this.handleShow}>Undo</Button>
                 </Col>
             </Row>
             <Modal
