@@ -170,9 +170,6 @@ export class BigPrize extends Component {
     }
 
     enginesReady = async () => {
-        if (!window.confirm(`Ready to pick drivers?`)) {
-            return
-        };
         await this.setState({currentUser: this.state.participants[0]})
         await this.setState({page: Page.SELECT});
     }
