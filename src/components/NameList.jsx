@@ -52,9 +52,7 @@ export class NameList extends React.Component {
             <span>
                 <h3 style={{marginTop: "1rem"}}>Official Participants</h3>
                 <br />
-                {/* <ol className="list"> */}
                     {this.renderParticipants()}
-                {/* </ol> */}
             </span>
         )
     }
