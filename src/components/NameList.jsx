@@ -1,4 +1,5 @@
 import React from 'react'
+import { Col, Row } from 'react-bootstrap';
 import "./NameList.css"
 
 export class NameList extends React.Component {
@@ -24,18 +25,24 @@ export class NameList extends React.Component {
 
     participantClass(participant) {
         if (participant !== this.props.currentUser) {
-            return ''
+            return 'align-items-center'
         }
-        return 'selector'
+        return 'selector align-items-center'
     }
 
     renderParticipants() {
         return this.props.participants.map((participant, idx) => {
             return (
-                <li className={this.participantClass(participant)} key={idx}>
-                    <span name={participant.name}><strong>{participant.name}</strong></span>
-                    <p>{this.renderDrivers(participant.drivers)}</p>
-                </li>
+                <Row className={this.participantClass(participant)} key={idx}>
+                    <Col xs={2} className="pingContainer d-flex justify-content-center text-center">
+                        <img src="/img/pingpong.png" alt={this.props.number} className="ball"/>
+                        <span className="number">{idx+1}</span>
+                    </Col>
+                    <Col xs={10}>
+                        <span className="name" name={participant.name}><strong>{participant.name}</strong></span>
+                         <p className="driver">{this.renderDrivers(participant.drivers)}</p>
+                    </Col>
+                </Row>
             )
         })
     }
@@ -45,9 +52,9 @@ export class NameList extends React.Component {
             <span>
                 <h3 style={{marginTop: "1rem"}}>Official Participants</h3>
                 <br />
-                <ol className="list">
+                {/* <ol className="list"> */}
                     {this.renderParticipants()}
-                </ol>
+                {/* </ol> */}
             </span>
         )
     }
