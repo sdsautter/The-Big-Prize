@@ -8,137 +8,137 @@ import './BigPrize.css';
 import { Container, Row, Col } from 'react-bootstrap'
 
 const DriverNames = {
-    MARCO: {
-        name: "Marco Andretti",
-        number: 98,
-    },
-    SCOTT: {
+    DIXON: {
         name: "Scott Dixon",
-        number: 9,
-    },
-    TAKUMA: {
-        name: "Takuma Sato",
-        number: 30,
-    },
-    RINUS: {
-        name: "Rinus VeeKay",
-        number: 21,
-    },
-    RYAN: {
-        name: "Ryan Hunter-Reay",
-        number: 28,
-    },
-    JAMES_HINCH: {
-        name: "James Hinchcliffe",
-        number: 29,
-    },
-    ALEX: {
-        name: "Alex Palou",
-        number: 55,
-    },
-    GRAHAM: {
-        name: "Graham Rahal",
-        number: 15,
-    },
-    ALEXANDER: {
-        name: "Alexander Rossi",
-        number: 27,
-    },
-    COLTON: {
+        number: 9
+    }, 
+    HERTA: {
         name: "Colton Herta",
-        number: 88,
+        number: 26
+    },
+    VEEKAY: {
+        name: "Rinus VeeKay",
+        number: 21
+    },
+    CARPENTER: {
+        name: "Ed Carpenter",
+        number: 20
+    },
+    KANAAN: {
+        name: "Tony Kanaan",
+        number: 48
+    },
+    PALOU: {
+        name: "Alex Palou",
+        number: 10
+    },
+    HUNTER_REAY: {
+        name: "Ryan Hunter-Reay",
+        number: 28
+    },
+    CASTRONEVES: {
+        name: "Helio Castroneves",
+        number: "06"
     },
     MARCUS: {
         name: "Marcus Ericsson",
         number: 8,
     },
-    SPENCER: {
-        name: "Spencer Pigot",
-        number: 45,
+    ROSSI: {
+        name: "Alexander Rossi",
+        number: 27
     },
-    JOSEF: {
-        name: "Josef Newgarden",
-        number: 1,
+    JONES: {
+        name: "Ed Jones",
+        number: 18
     },
-    FELIX: {
-        name: "Felix Rosenqvist",
-        number: 10,
-    },
-    PATO: {
+    OWARD: {
         name: "Pato O'Ward",
-        number: 5,
+        number: 5
     },
-    ED: {
-        name: "Ed Carpenter",
-        number: 20,
+    FITTIPALDI: {
+        name: "Pietro Fittipaldi",
+        number: 51
     },
-    ZACH: {
-        name: "Zach Veach",
-        number: 26,
+    ROSENQVIST: {
+        name: "Felix Rosenqvist",
+        number: 7
     },
-    CONOR: {
+    SATO: {
+        name: "Takuma Sato",
+        number: 30
+    },
+    HINCHCLIFFE: {
+        name: "James Hinchcliffe",
+        number: 29
+    },
+    MCLAUGHLIN: {
+        name: "Scott McLaughlin",
+        number: 3
+    },
+    RAHAL: {
+        name: "Graham Rahal",
+        number: 15
+    },
+    DALY: {
         name: "Conor Daly",
-        number: 47,
+        number: 47
     },
-    SANTINO: {
-        name: "Santino Ferrucci",
-        number: 18,
-    },
-    JACK: {
+    HARVEY: {
         name: "Jack Harvey",
-        number: 60,
+        number: 60
     },
-    OLIVER: {
-        name: "Oliver Askew",
-        number: 7,
+    NEWGARDEN: {
+        name: "Josef Newgarden",
+        number: 2
     },
-    WILL: {
-        name: "Will Power",
-        number: 12,
-    },
-    TONY: {
-        name: "Tony Kanaan",
-        number: 14,
-    },
-    DALTON: {
-        name: "Dalton Kellett",
-        number: 41,
-    },
-    SIMON: {
-        name: "Simon Pagenaud",
-        number: 22,
-    },
-    FERNANDO: {
-        name: "Fernando Alonso",
-        number: 66,
-    },
-    JAMES: {
-        name: "James Davison",
-        number: 51,
-    },
-    HELIO: {
-        name: "Helio Castroneves",
-        number: 3,
-    },
-    CHARLIE: {
-        name: "Charlie Kimball",
-        number: 4,
-    },
-    MAX: {
-        name: "Max Chilton",
-        number: 59,
-    },
-    SAGE: {
-        name: "Sage Karam",
-        number: 24,
-    },
-    JR: {
+    HILDEBRAND: {
         name: "JR Hildebrand",
-        number: 67,
+        number: 1
     },
-    BEN: {
-        name: "Ben Hanley",
-        number: 81,
+    FERRUCCI: {
+        name: "Santino Ferrucci",
+        number: 45
+    },
+    MONTOYA: {
+        name: "Juan Pablo Montoya",
+        number: 86
+    },
+    ANDRETTI: {
+        name: "Marco Andretti",
+        number: 98
+    },
+    PAGENAUD: {
+        name: "Simon Pagenaud",
+        number: 22
+    },
+    BOURDAIS: {
+        name: "Sebastien Bourdais",
+        number: 14
+    },
+    WILSON: {
+        name: "Stefan Wilson",
+        number: 25
+    },
+    CHILTON: {
+        name: "Max Chilton",
+        number: 59
+    },
+    KELLETT: {
+        name: "Dalton Kellett",
+        number: 4
+    },
+    KARAM: {
+        name: "Sage Karam",
+        number: 24
+    },
+    POWER: {
+        name: "Will Power",
+        number: 12
+    },
+    SILVESTRO: {
+        name: "Simona De Silvestro",
+        number: 16
     }
 }
 
