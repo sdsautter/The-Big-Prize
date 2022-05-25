@@ -17,7 +17,7 @@ const DriverNames = {
         name: "Alex Palou",
         number: "10",
     },
-    RINUS: {
+    VEEKAY: {
         name: "Rinus VeeKay",
         number: "21",
     },
@@ -191,7 +191,6 @@ const DriverNames = {
     //     name: "Max Chilton",
     //     number: 59,
     // },
-   
     // BEN: {
     //     name: "Ben Hanley",
     //     number: 81,
