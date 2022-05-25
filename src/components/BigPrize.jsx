@@ -8,138 +8,193 @@ import './BigPrize.css';
 import { Container, Row, Col } from 'react-bootstrap'
 
 const DriverNames = {
-    DIXON: {
+    // Row 1
+    SCOTT: {
         name: "Scott Dixon",
-        number: 9
-    }, 
-    HERTA: {
-        name: "Colton Herta",
-        number: 26
+        number: "9",
+    },
+    ALEX: {
+        name: "Alex Palou",
+        number: "10",
     },
     VEEKAY: {
         name: "Rinus VeeKay",
-        number: 21
+        number: "21",
     },
-    CARPENTER: {
+    // Row 2
+    ED: {
         name: "Ed Carpenter",
-        number: 20
-    },
-    KANAAN: {
-        name: "Tony Kanaan",
-        number: 48
-    },
-    PALOU: {
-        name: "Alex Palou",
-        number: 10
-    },
-    HUNTER_REAY: {
-        name: "Ryan Hunter-Reay",
-        number: 28
-    },
-    CASTRONEVES: {
-        name: "Helio Castroneves",
-        number: "06"
+        number: "33",
     },
     MARCUS: {
         name: "Marcus Ericsson",
-        number: 8,
+        number: "8",
     },
-    ROSSI: {
-        name: "Alexander Rossi",
-        number: 27
+    TONY: {
+        name: "Tony Kanaan",
+        number: "1",
     },
-    JONES: {
-        name: "Ed Jones",
-        number: 18
-    },
-    OWARD: {
+    // Row 3
+    PATO: {
         name: "Pato O'Ward",
-        number: 5
+        number: "5",
     },
-    FITTIPALDI: {
-        name: "Pietro Fittipaldi",
-        number: 51
-    },
-    ROSENQVIST: {
+    FELIX: {
         name: "Felix Rosenqvist",
-        number: 7
+        number: "7",
     },
-    SATO: {
+    ROMAIN: {
+        name: "Romain Grosjean",
+        number: "28"
+    },
+    // Row 4
+    TAKUMA: {
         name: "Takuma Sato",
-        number: 30
+        number: "51",
     },
-    HINCHCLIFFE: {
-        name: "James Hinchcliffe",
-        number: 29
-    },
-    MCLAUGHLIN: {
-        name: "Scott McLaughlin",
-        number: 3
-    },
-    RAHAL: {
-        name: "Graham Rahal",
-        number: 15
-    },
-    DALY: {
-        name: "Conor Daly",
-        number: 47
-    },
-    HARVEY: {
-        name: "Jack Harvey",
-        number: 60
-    },
-    NEWGARDEN: {
-        name: "Josef Newgarden",
-        number: 2
-    },
-    HILDEBRAND: {
-        name: "JR Hildebrand",
-        number: 1
-    },
-    FERRUCCI: {
-        name: "Santino Ferrucci",
-        number: 45
-    },
-    MONTOYA: {
-        name: "Juan Pablo Montoya",
-        number: 86
-    },
-    ANDRETTI: {
-        name: "Marco Andretti",
-        number: 98
-    },
-    PAGENAUD: {
-        name: "Simon Pagenaud",
-        number: 22
-    },
-    BOURDAIS: {
-        name: "Sebastien Bourdais",
-        number: 14
-    },
-    WILSON: {
-        name: "Stefan Wilson",
-        number: 25
-    },
-    CHILTON: {
-        name: "Max Chilton",
-        number: 59
-    },
-    KELLETT: {
-        name: "Dalton Kellett",
-        number: 4
-    },
-    KARAM: {
-        name: "Sage Karam",
-        number: 24
-    },
-    POWER: {
+    WILL: {
         name: "Will Power",
-        number: 12
+        number: "12",
     },
-    SILVESTRO: {
-        name: "Simona De Silvestro",
-        number: 16
-    }
+    JIMMIE : {
+        name: "Jimmie Johnson",
+        number: "48"
+    },
+    // Row 5
+    DAVID: {
+        name: "David Malukas",
+        number: "18"
+    },
+    JOSEF: {
+        name: "Josef Newgarden",
+        number: "2",
+    },
+    SANTINO: {
+        name: "Santino Ferrucci",
+        number: "23",
+    },
+    // Row 6
+    SIMON: {
+        name: "Simon Pagenaud",
+        number: "60",
+    },
+    JR: {
+        name: "JR Hildebrand",
+        number: "11",
+    },
+    CONOR: {
+        name: "Conor Daly",
+        number: "20",
+    },
+    // Row 7
+    CALLUM: {
+        name: "Callum Ilott",
+        number: "24"
+    },
+    ALEXANDER: {
+        name: "Alexander Rossi",
+        number: "27",
+    },
+    GRAHAM: {
+        name: "Graham Rahal",
+        number: "15",
+    },
+    // Row 8
+    SAGE: {
+        name: "Sage Karam",
+        number: "24",
+    },
+    MARCO: {
+        name: "Marco Andretti",
+        number: "98"
+    },
+    DEVLIN: {
+        name: "Devlin DeFrancesco",
+        number: "29"
+    },
+    // Row 9
+    COLTON: {
+        name: "Colton Herta",
+        number: "26",
+    },
+    SCOTT_MC: {
+        name: "Scott McLaughlin",
+        number: "3"
+    },
+    HELIO: {
+        name: "Helio Castroneves",
+        number: "06",
+    },
+    // Row 10
+    KYLE: {
+        name: "Kyle Kirkwood",
+        number: "14"
+    },
+    DALTON: {
+        name: "Dalton Kellett",
+        number: "4",
+    },
+    JUAN: {
+        name: "Juan Pablo Montoya",
+        number: "6"
+    },
+    // Row 11
+    CHRISTIAN: {
+        name: "Christian Lundgaard",
+        number: "30"
+    },
+    JACK: {
+        name: "Jack Harvey",
+        number: "45"
+    },
+    STEFAN: {
+        name: "Stefan Wilson",
+        number: "25"
+    },
+
+    // PREVIOUS DRIVERS
+    // RYAN: {
+    //     name: "Ryan Hunter-Reay",
+    //     number: 28,
+    // },
+    // JAMES_HINCH: {
+    //     name: "James Hinchcliffe",
+    //     number: 29,
+    // },
+    
+   
+    // SPENCER: {
+    //     name: "Spencer Pigot",
+    //     number: 45,
+    // },
+    // ZACH: {
+    //     name: "Zach Veach",
+    //     number: 26,
+    // },
+    // OLIVER: {
+    //     name: "Oliver Askew",
+    //     number: 7,
+    // },
+    // FERNANDO: {
+    //     name: "Fernando Alonso",
+    //     number: 66,
+    // },
+    // JAMES: {
+    //     name: "James Davison",
+    //     number: 51,
+    // },
+    // CHARLIE: {
+    //     name: "Charlie Kimball",
+    //     number: 4,
+    // },
+    // MAX: {
+    //     name: "Max Chilton",
+    //     number: 59,
+    // },
+    // BEN: {
+    //     name: "Ben Hanley",
+    //     number: 81,
+    // }
 }
 
 const Page = {
