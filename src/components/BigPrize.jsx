@@ -7,195 +7,142 @@ import { Results } from './Results'
 import './BigPrize.css';
 import { Container, Row, Col } from 'react-bootstrap'
 
-const DriverNames = {
+const DriverNames = [
     // Row 1
-    SCOTT: {
-        name: "Scott Dixon",
-        number: "9",
-    },
-    ALEX: {
+    {
         name: "Alex Palou",
         number: "10",
     },
-    VEEKAY: {
+    {
         name: "Rinus VeeKay",
         number: "21",
     },
+    {
+        name: "Felix Rosenqvist",
+        number: "6",
+    },
     // Row 2
-    ED: {
-        name: "Ed Carpenter",
-        number: "33",
+    {
+        name: "Santino Ferrucci",
+        number: "14",
     },
-    MARCUS: {
-        name: "Marcus Ericsson",
-        number: "8",
-    },
-    TONY: {
-        name: "Tony Kanaan",
-        number: "1",
-    },
-    // Row 3
-    PATO: {
+    {
         name: "Pato O'Ward",
         number: "5",
     },
-    FELIX: {
-        name: "Felix Rosenqvist",
-        number: "7",
+    {
+        name: "Scott Dixon",
+        number: "9"
     },
-    ROMAIN: {
-        name: "Romain Grosjean",
-        number: "28"
-    },
-    // Row 4
-    TAKUMA: {
-        name: "Takuma Sato",
-        number: "51",
-    },
-    WILL: {
-        name: "Will Power",
-        number: "12",
-    },
-    JIMMIE : {
-        name: "Jimmie Johnson",
-        number: "48"
-    },
-    // Row 5
-    DAVID: {
-        name: "David Malukas",
-        number: "18"
-    },
-    JOSEF: {
-        name: "Josef Newgarden",
-        number: "2",
-    },
-    SANTINO: {
-        name: "Santino Ferrucci",
-        number: "23",
-    },
-    // Row 6
-    SIMON: {
-        name: "Simon Pagenaud",
-        number: "60",
-    },
-    JR: {
-        name: "JR Hildebrand",
-        number: "11",
-    },
-    CONOR: {
-        name: "Conor Daly",
-        number: "20",
-    },
-    // Row 7
-    CALLUM: {
-        name: "Callum Ilott",
-        number: "24"
-    },
-    ALEXANDER: {
+    {
         name: "Alexander Rossi",
-        number: "27",
+        number: "7"
     },
-    GRAHAM: {
-        name: "Graham Rahal",
-        number: "15",
+    {
+        name: "Takuma Sato",
+        number: "11"
     },
-    // Row 8
-    SAGE: {
-        name: "Sage Karam",
-        number: "24",
+    {
+        name: "Tony Kanaan",
+        number: "66"
     },
-    MARCO: {
-        name: "Marco Andretti",
-        number: "98"
+    {
+        name: "Marcus Ericsson",
+        number: "8"
     },
-    DEVLIN: {
-        name: "Devlin DeFrancesco",
-        number: "29"
+    {
+        name: "Benjamin Pedersen",
+        number: "55"
     },
-    // Row 9
-    COLTON: {
-        name: "Colton Herta",
-        number: "26",
+    {
+        name: "Will Power",
+        number: "12"
     },
-    SCOTT_MC: {
+    {
+        name: "Ed Carpenter",
+        number: "33"
+    },
+    {
         name: "Scott McLaughlin",
         number: "3"
     },
-    HELIO: {
-        name: "Helio Castroneves",
-        number: "06",
-    },
-    // Row 10
-    KYLE: {
+    {
         name: "Kyle Kirkwood",
-        number: "14"
+        number: "27"
     },
-    DALTON: {
-        name: "Dalton Kellett",
-        number: "4",
+    {
+        name: "Conor Daly",
+        number: "20"
     },
-    JUAN: {
-        name: "Juan Pablo Montoya",
-        number: "6"
+    {
+        name: "Josef Newgarden",
+        number: "2"
     },
-    // Row 11
-    CHRISTIAN: {
+    {
+        name: "Ryan Hunter-Reay",
+        number: "23"
+    },
+    {
+        name: "Romain Grosjean",
+        number: "28"
+    },
+    {
+        name: "Helio Castroneves",
+        number: "06"
+    },
+    {
+        name: "Colton Herta",
+        number: "26"
+    },
+    {
+        name: "Simon Pagenaud",
+        number: "60"
+    },
+    {
+        name: "David Malukas",
+        number: "18"
+    },
+    {
+        name: "Marco Andretti",
+        number: "98"
+    },
+    {
+        name: "Stefan Wilson",
+        number: "24"
+    },
+    {
+        name: "Devlin DeFrancesco",
+        number: "29"
+    },
+    {
+        name: "Agustin Canapino",
+        number: "78"
+    },
+    {
+        name: "Callum Ilot",
+        number: "77"
+    },
+    {
+        name: "RC Enerson",
+        number: "50"
+    },
+    {
+        name: "Katherine Legge",
+        number: "44"
+    },
+    {
         name: "Christian Lundgaard",
-        number: "30"
-    },
-    JACK: {
-        name: "Jack Harvey",
         number: "45"
     },
-    STEFAN: {
-        name: "Stefan Wilson",
-        number: "25"
+    {
+        name: "Sting Ray Robb",
+        number: "51"
     },
-
-    // PREVIOUS DRIVERS
-    // RYAN: {
-    //     name: "Ryan Hunter-Reay",
-    //     number: 28,
-    // },
-    // JAMES_HINCH: {
-    //     name: "James Hinchcliffe",
-    //     number: 29,
-    // },
-    
-   
-    // SPENCER: {
-    //     name: "Spencer Pigot",
-    //     number: 45,
-    // },
-    // ZACH: {
-    //     name: "Zach Veach",
-    //     number: 26,
-    // },
-    // OLIVER: {
-    //     name: "Oliver Askew",
-    //     number: 7,
-    // },
-    // FERNANDO: {
-    //     name: "Fernando Alonso",
-    //     number: 66,
-    // },
-    // JAMES: {
-    //     name: "James Davison",
-    //     number: 51,
-    // },
-    // CHARLIE: {
-    //     name: "Charlie Kimball",
-    //     number: 4,
-    // },
-    // MAX: {
-    //     name: "Max Chilton",
-    //     number: 59,
-    // },
-    // BEN: {
-    //     name: "Ben Hanley",
-    //     number: 81,
-    // }
-}
+    {
+        name: "Jack Harvey",
+        number: "30"
+    },
+]
 
 const Page = {
     INPUT: "input",
@@ -209,8 +156,8 @@ export class BigPrize extends Component {
         this.state = {
             page: Page.INPUT,
             participants: [],
-            drivers: Object.keys(DriverNames).map((driver, idx) => {
-                return {name: DriverNames[driver].name, number:  DriverNames[driver].number, selected: false}
+            drivers: DriverNames.map(({name, number}, idx) => {
+                return {name: name, number:  number, selected: false}
             }),
             currentUser: null,
             selectionNumber: 1

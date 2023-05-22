@@ -11,13 +11,21 @@ export class Drivers extends React.Component {
     renderDrivers() {
         return this.props.drivers.map((driver, idx) => {
             const imgSrc = `/img/cars/${driver.number}.png`
+            console.log(idx);
             return (
-                <Col md={4} key={idx} className="driver">
-                    <Button className="driver-button" name={driver.name} disabled={driver.selected} onClick={this.props.selectDriver}>
-                        #{driver.number} {driver.name}
-                        <img style={{width: "100%"}}src={imgSrc} name={driver.name} alt={driver.name}></img>
-                    </Button>
-                </Col>
+                <> 
+                    {(idx === 0 || idx % 3 === 0) && (
+                        <Col md={12} style={{fontSize: '1.25rem', marginBottom: '4px'}}>
+                            Row {(idx /  3) +1 }
+                        </Col>
+                    )}
+                    <Col md={4} key={idx} className="driver">
+                        <Button className="driver-button" name={driver.name} disabled={driver.selected} onClick={this.props.selectDriver}>
+                            #{driver.number} {driver.name}
+                            <img style={{width: "100%"}}src={imgSrc} name={driver.name} alt={driver.name}></img>
+                        </Button>
+                    </Col>
+                </>
             )
         })
     }
