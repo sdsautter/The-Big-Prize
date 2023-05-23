@@ -5,10 +5,9 @@ import {Drivers} from './Drivers'
 import { CurrentUser } from './CurrentUser'
 import { Results } from './Results'
 import './BigPrize.css';
-import { Container, Row, Col } from 'react-bootstrap'
+import { Row, Col } from 'react-bootstrap'
 
-const DriverNames = [
-    // Row 1
+const DriversArray = [
     {
         name: "Alex Palou",
         number: "10",
@@ -21,7 +20,6 @@ const DriverNames = [
         name: "Felix Rosenqvist",
         number: "6",
     },
-    // Row 2
     {
         name: "Santino Ferrucci",
         number: "14",
@@ -107,10 +105,6 @@ const DriverNames = [
         number: "98"
     },
     {
-        name: "Stefan Wilson",
-        number: "24"
-    },
-    {
         name: "Devlin DeFrancesco",
         number: "29"
     },
@@ -142,13 +136,18 @@ const DriverNames = [
         name: "Jack Harvey",
         number: "30"
     },
-]
+    {
+        name: "Graham Rahal",
+        number: "24"
+    },
+];
 
 const Page = {
     INPUT: "input",
     SELECT: "select",
     RESULTS: "result"
 }
+
 export class BigPrize extends Component {
     ascending = true;
     constructor(props) {
@@ -156,7 +155,7 @@ export class BigPrize extends Component {
         this.state = {
             page: Page.INPUT,
             participants: [],
-            drivers: DriverNames.map(({name, number}, idx) => {
+            drivers: DriversArray.map(({name, number}, idx) => {
                 return {name: name, number:  number, selected: false}
             }),
             currentUser: null,
@@ -177,6 +176,7 @@ export class BigPrize extends Component {
     }
 
     selectDriver = async (driver) => {
+        console.log("selected: ", driver);
         const name = driver.target.name;
         const drivers = this.state.drivers;
         drivers.forEach(driver => {
@@ -285,29 +285,29 @@ export class BigPrize extends Component {
         switch (this.state.page) {
             case Page.INPUT:
                 return (
-                    <Row className="">
-                        <Col md={8} sm={12}>
-                            <h1 style={{marginTop: "1rem"}}>The Official Big Prize™</h1>
-                            <img style={{maxWidth: "50%"}} src="/img/indy500.png" alt="indy500" />
-                            <br />
-                            <NameInput
-                                addName={this.addName}
-                                names={this.state.participants}
-                                enginesReady={this.enginesReady}
-                            />
-                        </Col>
-                        <Col md={4} sm={12} className="name-list">
-                            <NameList
-                                participants={this.state.participants}
-                            />
-                        </Col>
-                    </Row>
+                        <Row className="">
+                            <Col md={8} sm={12} style={{marginLeft: '5%'}}>
+                                <h1 style={{marginTop: "1rem"}}>The Official Big Prize™</h1>
+                                <img style={{maxWidth: "50%"}} src="/img/indy500.png" alt="indy500" />
+                                <br />
+                                <NameInput
+                                    addName={this.addName}
+                                    names={this.state.participants}
+                                    enginesReady={this.enginesReady}
+                                />
+                            </Col>
+                            <Col md={4} sm={12} className="name-list">
+                                <NameList
+                                    participants={this.state.participants}
+                                />
+                            </Col>
+                        </Row>
                 )
         
             case Page.SELECT:
                 return (
                     <Row>
-                        <Col md={8} sm={12}>
+                        <Col md={8} sm={12} style={{marginLeft: '5%'}}>
                             <h1 style={{marginTop: "1rem"}}>The Official Big Prize™</h1>
                             <img style={{maxWidth: "50%"}} src="/img/indy500.png" alt="indy500" />
                             <br />
@@ -322,7 +322,7 @@ export class BigPrize extends Component {
                                 drivers={this.state.drivers}
                             />
                         </Col>
-                        <Col md={4} sm={12} className="name-list">
+                        <Col md={3} sm={12} className="name-list">
                             <NameList
                                 currentUser={this.state.currentUser}
                                 participants={this.state.participants}
@@ -353,9 +353,9 @@ export class BigPrize extends Component {
     }
     render(){
         return (
-            <Container>
+            <div style={{maxWidth: '95vw'}}>
                 {this.renderPage()}
-            </Container>   
+            </div>   
         )
     }
 }

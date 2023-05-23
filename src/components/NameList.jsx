@@ -12,13 +12,8 @@ export class NameList extends React.Component {
 
     renderDrivers(drivers) {
         return drivers.map((driver, idx) => {
-            if (idx === 0) {
-                return (
-                    <span key={driver} name={driver}><i>{driver}</i></span>
-                )
-            }
             return (
-                <span key={driver} name={driver}><i>, {driver}</i></span>
+                <span key={`${driver}_${idx}_nameList`} name={driver}><i>{idx !== 0 ? ', ' : ''}{driver}</i></span>
             )        
         })
     }
@@ -33,14 +28,14 @@ export class NameList extends React.Component {
     renderParticipants() {
         return this.props.participants.map((participant, idx) => {
             return (
-                <Row className={this.participantClass(participant)} key={idx}>
+                <Row className={this.participantClass(participant)} key={`${participant}_${idx}`}>
                     <Col xs={2} className="pingContainer d-flex justify-content-center text-center">
                         <img src="/img/pingpong.png" alt={this.props.number} className="ball"/>
                         <span className="number">{idx+1}</span>
                     </Col>
                     <Col xs={10}>
                         <span className="name" name={participant.name}><strong>{participant.name}</strong></span>
-                         <p className="driver">{this.renderDrivers(participant.drivers)}</p>
+                        <p className="driver">{this.renderDrivers(participant.drivers)}</p>
                     </Col>
                 </Row>
             )
