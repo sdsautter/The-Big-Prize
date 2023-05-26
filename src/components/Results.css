@@ -9,8 +9,10 @@
 .card-header {
     background-color: black;
     color: rgb(233, 236, 239);
+    font-size: 2rem;
 }
 
 .drivers {
     background-color: rgb(248, 249, 250);
+    font-size: 1.25rem;
 }

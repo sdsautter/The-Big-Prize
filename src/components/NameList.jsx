@@ -5,17 +5,8 @@ import "./NameList.css"
 export class NameList extends React.Component {
     constructor(props) {
         super(props);
-        this.renderDrivers.bind(this);
         this.renderParticipants.bind(this);
         this.participantClass.bind(this);
-    }
-
-    renderDrivers(drivers) {
-        return drivers.map((driver, idx) => {
-            return (
-                <span key={`${driver}_${idx}_nameList`} name={driver}><i>{idx !== 0 ? ', ' : ''}{driver}</i></span>
-            )        
-        })
     }
 
     participantClass(participant) {
@@ -35,7 +26,7 @@ export class NameList extends React.Component {
                     </Col>
                     <Col xs={10}>
                         <span className="name" name={participant.name}><strong>{participant.name}</strong></span>
-                        <p className="driver">{this.renderDrivers(participant.drivers)}</p>
+                        <p className="driver">{participant.drivers.join(', ')}</p>
                     </Col>
                 </Row>
             )
