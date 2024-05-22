@@ -9,136 +9,136 @@ import { Row, Col } from 'react-bootstrap'
 
 const DriversArray = [
     {
-        name: "Alex Palou",
-        number: "10",
-    },
-    {
-        name: "Rinus VeeKay",
-        number: "21",
-    },
-    {
-        name: "Felix Rosenqvist",
-        number: "6",
-    },
-    {
-        name: "Santino Ferrucci",
-        number: "14",
-    },
-    {
-        name: "Pato O'Ward",
-        number: "5",
-    },
-    {
-        name: "Scott Dixon",
-        number: "9"
-    },
-    {
-        name: "Alexander Rossi",
-        number: "7"
-    },
-    {
-        name: "Takuma Sato",
-        number: "11"
-    },
-    {
-        name: "Tony Kanaan",
-        number: "66"
-    },
-    {
-        name: "Marcus Ericsson",
-        number: "8"
-    },
-    {
-        name: "Benjamin Pedersen",
-        number: "55"
+        name: "Scott McLaughlin",
+        number: "3",
     },
     {
         name: "Will Power",
-        number: "12"
+        number: "12",
     },
     {
-        name: "Ed Carpenter",
-        number: "33"
+        name: "Josef Newgarden",
+        number: "2",
     },
     {
-        name: "Scott McLaughlin",
-        number: "3"
+        name: "Alexander Rossi",
+        number: "7",
+    },
+    {
+        name: "Kyle Larson",
+        number: "17",
+    },
+    {
+        name: "Santino Ferrucci",
+        number: "14"
+    },
+    {
+        name: "Rinus VeeKay",
+        number: "21"
+    },
+    {
+        name: "Pato O'Ward",
+        number: "5"
+    },
+    {
+        name: "Felix Rosenqvist",
+        number: "60"
+    },
+    {
+        name: "Takuma Sato",
+        number: "75"
     },
     {
         name: "Kyle Kirkwood",
         number: "27"
     },
     {
-        name: "Conor Daly",
-        number: "20"
-    },
-    {
-        name: "Josef Newgarden",
-        number: "2"
-    },
-    {
         name: "Ryan Hunter-Reay",
         number: "23"
-    },
-    {
-        name: "Romain Grosjean",
-        number: "28"
-    },
-    {
-        name: "Helio Castroneves",
-        number: "06"
     },
     {
         name: "Colton Herta",
         number: "26"
     },
     {
-        name: "Simon Pagenaud",
-        number: "60"
+        name: "Alex Palou",
+        number: "10"
     },
     {
-        name: "David Malukas",
-        number: "18"
+        name: "Callum Ilott",
+        number: "6"
+    },
+    {
+        name: "Marcus Armstrong",
+        number: "11"
+    },
+    {
+        name: "Ed Carpenter",
+        number: "20"
+    },
+    {
+        name: "Kyffin Simpson",
+        number: "4"
     },
     {
         name: "Marco Andretti",
         number: "98"
     },
     {
-        name: "Devlin DeFrancesco",
-        number: "29"
+        name: "Helio Castroneves",
+        number: "06"
+    },
+    {
+        name: "Scott Dixon",
+        number: "9"
     },
     {
         name: "Agustin Canapino",
         number: "78"
     },
     {
-        name: "Callum Ilot",
+        name: "Sting Ray Robb",
+        number: "41"
+    },
+    {
+        name: "Christian Rasmussen",
+        number: "33"
+    },
+    {
+        name: "Tom Blomqvist",
+        number: "66"
+    },
+    {
+        name: "Romain Grosjean",
         number: "77"
     },
     {
-        name: "RC Enerson",
-        number: "50"
-    },
-    {
-        name: "Katherine Legge",
-        number: "44"
+        name: "Linus Lundqvist",
+        number: "8"
     },
     {
         name: "Christian Lundgaard",
         number: "45"
     },
     {
-        name: "Sting Ray Robb",
-        number: "51"
+        name: "Conor Daly",
+        number: "24"
     },
     {
-        name: "Jack Harvey",
+        name: "Pietro Fittipaldi",
         number: "30"
     },
     {
+        name: "Katherine Legge",
+        number: "51"
+    },
+    {
+        name: "Marcus Ericsson",
+        number: "28"
+    },
+    {
         name: "Graham Rahal",
-        number: "24"
+        number: "15"
     },
 ];
 
